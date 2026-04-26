@@ -1,0 +1,78 @@
+@media only screen and (max-width: 1350px) {
+    #header .logo {justify-content: space-between;}
+    #header .hdr_main {padding: 0 40px;}
+    #header .hdr_icons {width: auto;}
+    
+    #banner {padding:  0 40px;}
+    #banner ul li {width: 100%;}
+
+    #middle1 .middle1_main {padding: 40px;gap: 25px;}
+
+    #main_area .main_info {padding: 40px;}
+
+    #bottom1 .btm1_main {padding: 40px;}
+    
+    #bottom2 .btm2_main {padding: 80px 40px 40px;}
+    
+    #footer_area .ftr_main {padding: 40px 40px 60px;}
+}
+
+@media only screen and (max-width: 1100px) {
+    #middle1 .consultation_form input[id="email"], 
+    #middle1 .consultation_form input[id="phone"] {width: 100%;}
+
+    #middle1 .middle1_video {width: 500px;height: 286px;}
+}
+
+@media only screen and (max-width: 1010px) {
+    #header .hdr_main {flex-wrap: wrap;justify-content: center;gap: 25px;padding: 40px 25px;}
+    #header .logo {justify-content: center;}
+
+    #main_area .main_info {padding: 40px 25px;}
+    #main_area .main_info h1 span {display: inline;}
+    
+    #banner {background: var(--cyan);padding: 40px 25px;}
+    #banner .wrapper {width: 100%;min-height: 0;}
+    #banner ul {width: 100%;}
+    
+    #middle1 .consultation_form h1 {text-align: center;}
+    #middle1 .middle1_main {flex-wrap: wrap;justify-content: center;padding: 40px 25px;}
+    #middle1 .consultation_form input[id="email"], #middle1 .consultation_form input[id="phone"] {width: calc(50% - 8px);}
+    #middle1 .consultation_form {margin: 0 auto;}
+    
+    #bottom1 .btm1_main {flex-wrap: wrap;gap: 25px;justify-content: center;padding: 40px 25px;}
+    #bottom1 .btm1_info {width: 100%;}
+    #bottom1 .btm1_info h1 span {display: inline;}
+    
+    #bottom2 .btm2_btns {flex-wrap: wrap;justify-content: center;gap: 25px;}
+    #bottom2 .btm2_btns li {width: calc(50% - 13px);}
+    #bottom2 .btm2_btns li a {font-size: 25px;}
+    #bottom2 .btm2_main {padding: 40px 25px;}
+    #bottom2 .btm2_info {margin: 40px 0 0;flex-wrap: wrap;gap: 25px;justify-content: center;}
+    #bottom2 .btm2_info section {width: calc(50% - 15px);max-width: 100%;}
+    
+    #footer_area .ftr_links {width: 100%;}
+    #footer_area .ftr_main {padding: 40px 25px;flex-wrap: wrap;justify-content: center;gap: 40px;}
+    #footer_area .ftr_links li {width: 31%;text-align: center;} 
+}
+
+@media only screen and (max-width: 600px) {
+    #middle1 .middle1_video {max-width: 100%;height: auto;}
+    
+    #main_area .main_info h1 {font-size: 35px;line-height: 1.2;}
+    
+    #banner ul li a {font-size: 25px;}
+    #banner ul li a::before,
+    #banner ul li a::after {display: none;}
+    
+    #middle1 .consultation_form input[id="email"], 
+    #middle1 .consultation_form input[id="phone"] {width: 100%;}
+    
+    #bottom1 .btm1_info h1 {font-size: 40px;letter-spacing: 0;}
+    #bottom2 .btm2_btns li {width: 100%;}
+    #bottom2 .btm2_info section {width: 100%;}
+    #bottom2 .btm2_info section h1 {margin: 0 0 12px;}
+    
+    #footer_area .ftr_links li {width: 100%;}
+    #footer_area .ftr_links {flex-wrap: wrap;gap: 15px;}
+}
