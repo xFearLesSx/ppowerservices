@@ -54,6 +54,13 @@
     #footer_area .ftr_links {width: 100%;}
     #footer_area .ftr_main {padding: 40px 25px;flex-wrap: wrap;justify-content: center;gap: 40px;}
     #footer_area .ftr_links li {width: 31%;text-align: center;} 
+
+    #carousel .slide {width: 100%;}
+    #carousel {padding: 40px 25px;}
+    #carousel .carousel-track {flex-wrap: wrap;}
+    #carousel .carousel_info {min-height: 0;}
+    #carousel .carousel_info h1 {min-height: 0;}
+    #carousel .slide .carousel_avatar {margin: 0;padding: 20px 0;}
 }
 
 @media only screen and (max-width: 600px) {
