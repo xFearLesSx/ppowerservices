@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       modal.classList.add('active');
 
-      // Fix carousel layout inside modal
       modal.querySelectorAll('.carousel').forEach(carousel => {
         carousel.__instance?.updatePosition();
       });
@@ -37,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // =========================
-  // CAROUSEL CLASS (3 PER VIEW)
+  // CAROUSEL CLASS (FIXED)
   // =========================
   class Carousel {
     constructor(element, options = {}) {
@@ -69,7 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
     init() {
       if (!this.track || this.totalSlides === 0) return;
 
-      // 🔥 STATIC MODE (no sliding needed)
       if (this.isStatic) {
         this.disableControls();
         return;
@@ -78,6 +76,8 @@ document.addEventListener('DOMContentLoaded', () => {
       this.cloneSlides();
       this.createDots();
       this.bindEvents();
+
+      this.setSizes();
       this.updatePosition();
 
       if (this.settings.autoplay) {
@@ -85,17 +85,21 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
+    // =========================
+    // FIX: ensure correct sizing
+    // =========================
+    setSizes() {
+      this.slideWidth = this.track.offsetWidth / this.slidesToShow;
+    }
+
     disableControls() {
-      // hide buttons
       this.nextBtn && (this.nextBtn.style.display = 'none');
       this.prevBtn && (this.prevBtn.style.display = 'none');
 
-      // hide dots
       if (this.dotsContainer) {
         this.dotsContainer.style.display = 'none';
       }
 
-      // reset transform (no sliding)
       this.track.style.transform = 'translateX(0)';
     }
 
@@ -119,6 +123,9 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       this.slides = Array.from(this.track.children);
+
+      this.startIndex = this.slidesToShow;
+      this.endIndex = this.slides.length - this.slidesToShow;
     }
 
     createDots() {
@@ -153,9 +160,12 @@ document.addEventListener('DOMContentLoaded', () => {
       dots[index]?.classList.add('active');
     }
 
+    // =========================
+    // FIX: pixel-based movement
+    // =========================
     updatePosition() {
       this.track.style.transform =
-        `translateX(-${(this.currentIndex * 100) / this.slidesToShow}%)`;
+        `translateX(-${this.currentIndex * this.slideWidth}px)`;
     }
 
     updateSlide() {
@@ -174,23 +184,26 @@ document.addEventListener('DOMContentLoaded', () => {
       this.updateSlide();
     }
 
+    // =========================
+    // FIXED LOOP LOGIC
+    // =========================
     handleLoop() {
-      if (this.currentIndex >= this.slides.length - this.slidesToShow) {
+      if (this.currentIndex >= this.endIndex) {
         this.track.style.transition = 'none';
-        this.currentIndex = this.slidesToShow;
+        this.currentIndex = this.startIndex;
         this.updatePosition();
       }
 
-      if (this.currentIndex < this.slidesToShow) {
+      if (this.currentIndex < this.startIndex) {
         this.track.style.transition = 'none';
-        this.currentIndex =
-          this.slides.length - (this.slidesToShow * 2);
+        this.currentIndex = this.endIndex - 1;
         this.updatePosition();
       }
     }
 
     startAutoplay() {
-      this.interval = setInterval(() => this.next(), this.settings.delay);
+      // optional
+      // this.interval = setInterval(() => this.next(), this.settings.delay);
     }
 
     stopAutoplay() {
@@ -219,7 +232,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (this.settings.autoplay) this.startAutoplay();
       });
 
-      // Touch
       this.track.addEventListener('touchstart', e =>
         this.handleSwipeStart(e.touches[0].clientX)
       );
@@ -228,7 +240,6 @@ document.addEventListener('DOMContentLoaded', () => {
         this.handleSwipeEnd(e.changedTouches[0].clientX)
       );
 
-      // Mouse
       this.track.addEventListener('mousedown', e =>
         this.handleSwipeStart(e.clientX)
       );
@@ -236,6 +247,12 @@ document.addEventListener('DOMContentLoaded', () => {
       this.track.addEventListener('mouseup', e =>
         this.handleSwipeEnd(e.clientX)
       );
+
+      // recompute on resize
+      window.addEventListener('resize', () => {
+        this.setSizes();
+        this.updatePosition();
+      });
     }
   }
 
@@ -249,8 +266,34 @@ document.addEventListener('DOMContentLoaded', () => {
       delay: 4000
     });
 
-    // store instance (for modal fix)
     carouselEl.__instance = instance;
   });
 
+});
+
+// SWIPER JS CAROUSEL
+const swiper = new Swiper(".testimonial-swiper", {
+  loop: true,
+  centeredSlides: true,
+  slidesPerView: 3, // 👈 exactly 3 visible
+  spaceBetween: 30,
+
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+
+  autoplay: {
+    delay: 4000,
+    disableOnInteraction: false,
+  },
+
+  breakpoints: {
+    0: {
+      slidesPerView: 1
+    },
+    768: {
+      slidesPerView: 3
+    }
+  }
 });

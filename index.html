@@ -18,6 +18,9 @@
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
 
     <script src="https://cdn.userway.org/widget.js" data-account="hep1kX6xFQ"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   </head>
 <body>
 
@@ -72,7 +75,7 @@
                     <textarea name="comment" id="comment" placeholder="Comment"></textarea>
                     <input type="button" value="submit">
                 </div>
-                <video width="550" height="314" controls class="middle1_video">
+                <video width="600" height="342" controls class="middle1_video">
                     <source src="videos/ferdy-video.mp4" type="video/mp4">
                     <source src="videos/ferdy-video.ogg" type="video/ogg">
                     Your browser does not support the video tag.
@@ -86,7 +89,7 @@
             <div class="main_info">
                 <h1>Law, Life, and Ministry:  How <span>Motivational Lawyering and Ministry</span> Transform Lives</h1>
                 <p>For over 35 years, Phyllis J. Powers, Esquire has approached law with a philosophy that goes beyond statutes, courtrooms, and legal strategy. Her career as an Attorney, Minister, Naval Officer, JAGC, mentor and advocate for indigent populations, has been guided by a simple truth: law is most powerful when combined with mentorship.</p>
-                <a href="#">Read</a>
+                <a data-modal-target="modal4">Read</a>                
             </div>
         </div>
     </main>
@@ -105,13 +108,13 @@
         </div>
     </div>
 
-    <div id="carousel">
+    <!-- <div id="carousel">
         <div class="wrapper"> 
             <div class="carousel_main">
                 <div class="carousel">
                     <div class="carousel-track">
 
-                        <!-- <div class="slide">
+                        <div class="slide">
                             <section>
                                 <div class="carousel_info">
                                     <h1>Honest, Thorough, and Highly Effective</h1>
@@ -151,7 +154,7 @@
                                      <p>M. Daniel Nelson</p>
                                 </div>
                             </section> 
-                        </div> -->
+                        </div>
                         <div class="slide">                                                       
                             <section>
                                 <div class="carousel_info">
@@ -197,11 +200,10 @@
 
                     <button class="btn prev">&#10094;</button>
                     <button class="btn next">&#10095;</button>
-                    <!-- <div class="dots"></div> -->
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div id="bottom2">
         <div class="wrapper">
@@ -217,6 +219,79 @@
                         <a>Immigration</a>
                     </li>
                 </ul>
+
+                <div class="swiper_carousel">
+                    <div class="wrapper">
+
+                        <h1 class="swiper_title">Testimonial</h1>
+                        
+                        <div class="swiper testimonial-swiper">
+                            <div class="swiper-wrapper">
+
+                                <div class="swiper-slide">
+                                    <div class="testimonial-card">
+
+                                        <div class="testimonial-content">
+                                            <h2>Honest, Thorough, and Highly Effective</h2>
+                                            <p>
+                                                Attorney Phyllis J. Powers is an exceptional lawyer who goes above and beyond for her clients...
+                                            </p>
+                                        </div>
+
+                                        <div class="testimonial-avatar">
+                                            <img src="images/dummy-avatar.png" alt="Avatar">
+                                        </div>
+
+                                        <div class="testimonial-footer">
+                                            <div class="rating">
+                                                <span class="star full"></span>
+                                                <span class="star full"></span>
+                                                <span class="star full"></span>
+                                                <span class="star full"></span>
+                                                <span class="star full"></span>
+                                            </div>
+                                            <p class="client-name">Patricia A.E. King</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <div class="testimonial-card">
+                                        <p>xxx</p>
+                                        <h4>xxx</h4>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <div class="testimonial-card">
+                                        <p>xxx</p>
+                                        <h4>xxx</h4>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <div class="testimonial-card">
+                                        <p>xxx</p>
+                                        <h4>xxx</h4>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <div class="testimonial-card">
+                                        <p>xxx</p>
+                                        <h4>xxx</h4>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="btm2_info">
                     <section class="note">
                         <h1>Please note:</h1>
@@ -253,33 +328,66 @@
         </div>
     </footer>
 
-        <!-- Modal 1 -->
+    <!-- Modal 1 -->
     <div id="modal1" class="modal">
         <div class="modal-content">
-            <span class="close" data-modal-close>&times;</span>
-            <h2>Privacy</h2>
-            <p>This site does not use cookies or track your privacy. Third parties linked to this site might track your
-            privacy but we do not authorize third parties to track your privacy. </p>
+            <div class="modal-header">
+                <span class="close" data-modal-close>&times;</span>
+                <h1>Privacy</h1>
+            </div>
+            <div class="modal-body">
+                <p>This site does not use cookies or track your privacy. Third parties linked to this site might track your privacy but we do not authorize third parties to track your privacy. </p>
+            </div>
         </div>
     </div>
 
     <!-- Modal 2 -->
     <div id="modal2" class="modal">
         <div class="modal-content">
-            <span class="close" data-modal-close>&times;</span>
-            <h2>Jurisdiction</h2>
-            <p>I am licensed to practice law in Pennsylvania. Legal services are provided only where permitted by
-            applicable laws and regulations.</p>
+            <div class="modal-header">
+                <span class="close" data-modal-close>&times;</span>
+                <h1>Jurisdiction</h1>
+            </div>
+            <div class="modal-body">
+                <p>I am licensed to practice law in Pennsylvania. Legal services are provided only where permitted by applicable laws and regulations.</p>
+            </div>
         </div>
     </div>
 
     <!-- Modal 3 -->
     <div id="modal3" class="modal">
         <div class="modal-content">
-            <span class="close" data-modal-close>&times;</span>
-            <h2>Disclaimer</h2>
-            <p>The information on this page is for general informational purposes only and does not constitute legal
-            advice. An attorney-client relationship is established only after a formal agreement has been signed.</p>
+            <div class="modal-header">
+                <span class="close" data-modal-close>&times;</span>
+                <h1>Disclaimer</h1>
+            </div>
+            <div class="modal-body">
+                <p>The information on this page is for general informational purposes only and does not constitute legal advice. An attorney-client relationship is established only after a formal agreement has been signed.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal4" class="modal modal_main_area">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" data-modal-close>&times;</span>
+                <h1>Law, Life, and Ministry: How <span>Motivational Lawyering and Ministry</span> Transform Lives</h1>
+            </div>
+            <div class="modal-body">
+                <p>For over 35 years, Phyllis J. Powers, Esquire has approached law with a philosophy that goes beyond statutes, courtrooms, and legal strategy. Her career as an Attorney, Minister, Navy JAG officer, and advocate for indigent populations has been guided by a simple truth: law is most powerful when combined with mentorship, life skills, and inspiration.
+
+                Clients come with problems that are often as emotional as they are legal. Divorce, child custody, criminal charges, or immigration hurdles can feel overwhelming and hopeless. Over decades of practice, Phyllis Joan Powers has learned that winning a case often requires more than legal expertise—it requires motivating clients to believe in possibilities, to embrace change, and to take practical steps toward better lives.
+
+                Her approach integrates ministry in practical, transformative ways. She inspires clients to invest in themselves—through swimming lessons, guitar lessons, weekly self-care routines, home makeovers, or starting their own businesses. She introduces life skills that create real, lasting change, while still providing meticulous legal representation.
+
+                In her solo practice, she combines rigorous case management with compassion and daily commitment. Every discovery, motion, and trial is prepared with precision, every client communication is handled with care, and every strategy is informed by integrity and respect for the people she represents. She has represented decades of criminal and immigration cases, family law matters, and achieved a precedent-setting outcome in the Pennsylvania Superior Court. It was one of the scariest moments in her life, but she did it. 
+
+                Motivational lawyering is central to her work. When a case seems hopeless, she shows clients that hope, planning, and action can transform outcomes. By offering guidance, encouragement, and practical strategies, she helps clients reclaim agency in their lives while ensuring they make informed, honest decisions—protecting both their futures and the integrity of the legal process.
+
+                Whether advocating for the vulnerable, mentoring youth, or inspiring clients to embrace personal growth, Phyllis Joan Powers demonstrates that lawyers can do far more than provide legal advice. They can change lives, empower communities, and turn even the most challenging circumstances into opportunities for resilience, transformation, and lasting success.
+
+                Her career is proof that law, life, and leadership intersect most powerfully when lawyers approach every client as a person, every case as a journey, and every opportunity as a chance to inspire change.</p>
+            </div>
         </div>
     </div>
 

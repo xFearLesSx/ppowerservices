@@ -29,7 +29,9 @@
     #header .logo {justify-content: center;}
 
     #main_area .main_info {padding: 40px 25px;}
-    #main_area .main_info h1 span {display: inline;}
+    #main_area .main_info h1 span,
+    .modal-content h1 span {display: inline;}
+    .modal_main_area .modal-content {padding: 25px;}
     
     #banner {background: var(--cyan);padding: 40px 25px;}
     #banner .wrapper {width: 100%;min-height: 0;}
