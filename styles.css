@@ -21,13 +21,13 @@ body {margin: 0 auto;min-height: 100vh;background: #f3f3f3;color: var(--blue);fo
 #header .hdr_icons {display: flex;align-items: center;gap: 60px;width: 300px;}
 #header .hdr_icons img {width: 50px;}
 
-#banner {background: url(images/bnr-bg.jpg) no-repeat center;background-size: 1920px;}
-#banner .wrapper {display: flex;align-items: center;min-height: 528px;width: 1250px;}
-#banner ul {display: flex;flex-wrap: wrap;gap: 30px;}
-#banner ul li {list-style: none;width: 1000px;max-width: 100%;}
-#banner ul li a {text-decoration: none;color: var(--yellow);background: var(--blue);text-align: center;width: 100%;display: block;font-size: 35px;text-transform: uppercase;font-weight: 700;border-radius: 40px;padding: 5px 0;position: relative;}
-#banner ul li a::before {content: '';position: absolute;display: block;z-index: 1;top: 50%;width: 40px;height: 40px;object-fit: contain;background-image: url(images/star-icon.png);background-size: contain;background-repeat: no-repeat;transform: translateY(-50%);left: 20px;}
-#banner ul li a::after {content: '';position: absolute;display: block;z-index: 1;top: 50%;width: 40px;height: 40px;object-fit: contain;background-image: url(images/star-icon.png);background-size: contain;background-repeat: no-repeat;transform: translateY(-50%);right: 20px;}
+#banner {background: url(images/bnr-bg.jpg) no-repeat center;background-size: 1350px;}
+#banner .wrapper {display: flex;align-items: center;min-height: 371px;width: 1200px;}
+#banner ul {display: flex;flex-wrap: wrap;gap: 20px;}
+#banner ul li {list-style: none;width: 830px;max-width: 100%;}
+#banner ul li a {text-decoration: none;color: var(--yellow);background: var(--blue);text-align: center;width: 100%;display: block;font-size: 25px;text-transform: uppercase;font-weight: 700;border-radius: 40px;padding: 10px 0;position: relative;}
+#banner ul li a::before {content: '';position: absolute;display: block;z-index: 1;top: 50%;width: 30px;height: 30px;object-fit: contain;background-image: url(images/star-icon.png);background-size: contain;background-repeat: no-repeat;transform: translateY(-50%);left: 20px;}
+#banner ul li a::after {content: '';position: absolute;display: block;z-index: 1;top: 50%;width: 30px;height: 30px;object-fit: contain;background-image: url(images/star-icon.png);background-size: contain;background-repeat: no-repeat;transform: translateY(-50%);right: 20px;}
 
 #middle1 {background: var(--yellow);min-height: 500px;}
 #middle1 .middle1_main {display: flex;justify-content: space-between;align-items: center;padding: 40px 0;}
