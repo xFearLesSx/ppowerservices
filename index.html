@@ -49,6 +49,11 @@
                             <img src="images/phone-icon.png" alt="phone icon">
                         </figure>
                     </a>
+                    <a href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/jlabuga2k16'});return false;">
+                        <figure>
+                            <img src="images/calendar-icon.png" alt="calendar icon">
+                        </figure>
+                    </a>
                 </div>
             </div>
         </div>
@@ -96,19 +101,44 @@
     <div id="middle1">
         <div class="wrapper">
             <div class="middle1_main">
+
                 <div class="consultation_form">
                     <h1>Consultation</h1>
-                    <input type="text" name="fullname" id="fullname" placeholder="Full Name">
-                    <input type="email" name="email" id="email" placeholder="Email Address">
-                    <input type="tel" id="phone" name="phone" placeholder="Phone Number">
-                    <textarea name="comment" id="comment" placeholder="Comment"></textarea>
-                    <input type="button" value="submit">
+                    <form id="contactForm" novalidate>
+                        <div class="form-group fullname">
+                            <!-- <label>Full Name</label> -->
+                            <input type="text" id="name" placeholder="Full Name">
+                            <div class="error" id="nameError"></div>
+                        </div>
+                        <div class="form-group email">
+                            <!-- <label>Email Address</label> -->
+                            <input type="email" id="email" placeholder="Email Address">
+                            <div class="error" id="emailError"></div>
+                        </div>
+                        <div class="form-group phone">
+                            <!-- <label>Phone Number</label> -->
+                            <input type="tel" id="phone" placeholder="Phone Number">
+                            <div class="error" id="phoneError"></div>
+                        </div>
+                        <div class="form-group comment">
+                            <!-- <label>Comment</label> -->
+                            <textarea id="comment" placeholder="Comment"></textarea>
+                            <div class="error" id="commentError"></div>
+                        </div>
+                        <button type="submit" class="submit_btn">Submit</button>
+
+                        <div class="success-message" id="successMessage">
+                            ✅ Your message has been submitted!
+                        </div>
+                    </form>
                 </div>
+
                 <video width="600" height="342" controls class="middle1_video">
                     <source src="videos/ferdy-video.mp4" type="video/mp4">
                     <source src="videos/ferdy-video.ogg" type="video/ogg">
                     Your browser does not support the video tag.
                 </video>
+
             </div>
         </div>
     </div>
@@ -128,7 +158,7 @@
                 <div class="btm1_info">
                     <h1>Virtual <span>Legal Services</span></h1>
                     <p>I provide quality, fast-paced legal services exclusively through secure remote access. Whether you need legal advice, document preparation, or ongoing representation, all services are delivered conveniently online—no in-person appointments.</p>
-                    <a>Book Now</a>
+                    <a href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/jlabuga2k16'});return false;">Book Now</a>
                 </div>
                 <figure>
                     <img src="images/attrney-img.png" alt="Female Attorney Smiling" class="btm1_img">
@@ -341,5 +371,9 @@
     </div>
 
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        emailjs.init("YfRWKoimClstJ4BVk");
+    </script>
 </body>
 </html>
