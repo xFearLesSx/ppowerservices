@@ -86,6 +86,8 @@
     #footer_area .ftr_links li {width: 100%;}
     #footer_area .ftr_links {flex-wrap: wrap;gap: 15px;}
 
+    .swiper_title {font-size: 35px;}
+
     /*  */
     .modal-content p, 
     #main_area .main_info p,
