@@ -85,4 +85,16 @@
     
     #footer_area .ftr_links li {width: 100%;}
     #footer_area .ftr_links {flex-wrap: wrap;gap: 15px;}
+
+    /*  */
+    .modal-content p, 
+    #main_area .main_info p,
+    #bottom1 .btm1_info p, 
+    #bottom2 .btm2_info section p, 
+    .swiper_carousel .testimonial-content p, 
+    #footer_area .ftr_links li a, 
+    #footer_area .ftr_copyright {
+        font-size: 20px;
+        line-height: 30px;
+    }
 }
