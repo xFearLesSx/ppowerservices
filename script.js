@@ -39,6 +39,7 @@ const swiper = new Swiper(".testimonial-swiper", {
   centeredSlides: true,
   slidesPerView: 3,
   spaceBetween: 30,
+  autoHeight: true,
 
   navigation: {
     nextEl: ".swiper-button-next",

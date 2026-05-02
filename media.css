@@ -62,6 +62,10 @@
     #carousel .slide .carousel_avatar {margin: 0;padding: 20px 0;}
 }
 
+@media only screen and (max-width: 768px) {
+    .swiper_carousel .testimonial-content p {max-height: unset;}
+}
+
 @media only screen and (max-width: 600px) {
     #middle1 .middle1_video {max-width: 100%;height: auto;}
     
