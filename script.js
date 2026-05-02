@@ -39,7 +39,7 @@ const swiper = new Swiper(".testimonial-swiper", {
   centeredSlides: true,
   slidesPerView: 3,
   spaceBetween: 30,
-  autoHeight: true,
+  autoHeight: window.innerWidth < 768,
 
   navigation: {
     nextEl: ".swiper-button-next",
@@ -63,6 +63,16 @@ const swiper = new Swiper(".testimonial-swiper", {
     }
   }
 });
+
+function updateAutoHeight() {
+  const isMobile = window.innerWidth < 768;
+
+  swiper.params.autoHeight = isMobile;
+  swiper.updateAutoHeight();
+}
+
+// run on resize
+window.addEventListener("resize", updateAutoHeight);
 
 // Form validation
 const form = document.getElementById('contactForm');
