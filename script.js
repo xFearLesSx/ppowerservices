@@ -55,6 +55,9 @@ const swiper = new Swiper(".testimonial-swiper", {
       slidesPerView: 1
     },
     768: {
+      slidesPerView: 2
+    },
+    1010: {
       slidesPerView: 3
     }
   }
