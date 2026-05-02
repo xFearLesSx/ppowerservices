@@ -36,6 +36,7 @@
     #banner {background: var(--cyan);padding: 40px 25px;}
     #banner .wrapper {width: 100%;min-height: 0;}
     #banner ul {width: 100%;}
+    #bottom1 .btm1_info a {margin-left: auto;}
     
     #middle1 .consultation_form h1 {text-align: center;}
     #middle1 .middle1_main {flex-wrap: wrap;justify-content: center;padding: 40px 25px;}
