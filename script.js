@@ -184,4 +184,28 @@ document.addEventListener('DOMContentLoaded', () => {
     '.fadeInUp, .fadeInLeft, .fadeInRight, .fadeInDown, .zoomIn, .bounceIn, .fadeInUpShort'
   ).forEach(el => observer.observe(el));
 
+  /* =========================
+    DROPDOWN TOGGLE (CLICK)
+  ========================== */
+  document.querySelectorAll('.bnr_btns > li, .btm2_btns > li').forEach(li => {
+    li.addEventListener('click', (e) => {
+      e.stopPropagation();
+
+      // close other open dropdowns
+      document.querySelectorAll('.bnr_btns > li.active, .btm2_btns > li.active')
+        .forEach(item => {
+          if (item !== li) item.classList.remove('active');
+        });
+
+      // toggle current
+      li.classList.toggle('active');
+    });
+  });
+
+  // close dropdown when clicking outside
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.bnr_btns > li.active, .btm2_btns > li.active')
+      .forEach(item => item.classList.remove('active'));
+  });
+
 });
