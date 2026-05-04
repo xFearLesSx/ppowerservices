@@ -60,6 +60,8 @@
     #carousel .carousel_info {min-height: 0;}
     #carousel .carousel_info h1 {min-height: 0;}
     #carousel .slide .carousel_avatar {margin: 0;padding: 20px 0;}
+
+    .animated {animation-name: none!important;opacity: 1!important;-webkit-transform: none!important;transform: none!important    }
 }
 
 @media only screen and (max-width: 768px) {

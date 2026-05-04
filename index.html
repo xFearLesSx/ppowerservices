@@ -17,8 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="media.css">
+    
 
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
@@ -27,6 +26,10 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="media.css">
+    <link rel="stylesheet" href="animation.css">
   </head>
 <body>
 
@@ -40,17 +43,17 @@
                 </div>
                 <div class="hdr_icons">
                     <a href="mailto:powersesquire@aol.com" aria-label="Email powersesquire@aol.com">
-                        <figure>
+                        <figure class="animated zoomIn">
                             <img src="images/mail-icon.png" alt="email icon">
                         </figure>
                     </a>
                     <a href="tel:+13632189788" aria-label="Call (363) 218-9788">
-                        <figure>
+                        <figure class="animated zoomIn delay-250">
                             <img src="images/phone-icon.png" alt="phone icon">
                         </figure>
                     </a>
-                    <a href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/jlabuga2k16'});return false;">
-                        <figure>
+                    <a href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/powersesquire'});return false;">
+                        <figure class="animated zoomIn delay-250">
                             <img src="images/calendar-icon.png" alt="calendar icon">
                         </figure>
                     </a>
@@ -63,7 +66,7 @@
         <div class="wrapper">
            <ul class="bnr_btns">
                 <li>
-                    <a>Family</a>
+                    <a class="bnr_item animated fadeInUp">Family</a>
                     <ul class="dropdown">
                         <li><a>Termination of Parental Rights</a></li>
                         <li><a>Dependency</a></li>
@@ -74,7 +77,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a>Immigration</a>
+                    <a class="bnr_item animated fadeInUp delay-250">Immigration</a>
                     <ul class="dropdown">
                         <li><a>Immigrant Visa Processing</a></li>
                         <li><a>Deportation / Removal</a></li>
@@ -86,7 +89,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a>Criminal Law</a>
+                    <a class="bnr_item animated fadeInUp delay-500">Criminal Law</a>
                     <ul class="dropdown">
                         <li><a>PCRA</a></li>
                         <li><a>Expunctions</a></li>
@@ -102,27 +105,23 @@
         <div class="wrapper">
             <div class="middle1_main">
 
-                <div class="consultation_form">
+                <div class="consultation_form animated fadeInLeft slow">
                     <h1>Consultation</h1>
                     <form id="contactForm" novalidate>
                         <div class="form-group fullname">
-                            <!-- <label>Full Name</label> -->
-                            <input type="text" id="name" placeholder="Full Name">
+                            <input type="text" id="name" name="name" placeholder="Full Name">
                             <div class="error" id="nameError"></div>
                         </div>
                         <div class="form-group email">
-                            <!-- <label>Email Address</label> -->
-                            <input type="email" id="email" placeholder="Email Address">
+                            <input type="email" id="email" name="email" placeholder="Email Address">
                             <div class="error" id="emailError"></div>
                         </div>
                         <div class="form-group phone">
-                            <!-- <label>Phone Number</label> -->
-                            <input type="tel" id="phone" placeholder="Phone Number">
+                            <input type="tel" id="phone" name="phone" placeholder="Phone Number">
                             <div class="error" id="phoneError"></div>
                         </div>
                         <div class="form-group comment">
-                            <!-- <label>Comment</label> -->
-                            <textarea id="comment" placeholder="Comment"></textarea>
+                            <textarea id="comment" name="message" placeholder="Comment"></textarea>
                             <div class="error" id="commentError"></div>
                         </div>
                         <button type="submit" class="submit_btn">Submit</button>
@@ -145,7 +144,7 @@
   
     <main id="main_area">
         <div class="wrapper">
-            <div class="main_info">
+            <div class="main_info animated zoomIn slow">
                 <h1>Championing the Vulnerable – <span>A Career in Public Service to the Indigent</span></h1>
                 <p>For over three decades, Phyllis Joan Powers, Esquire, LLC., has dedicated her legal career to serving those who are often overlooked in our society. With a profound commitment to justice, she has represented indigent clients in felony and misdemeanor cases, family law matters, and immigration petitions, tirelessly advocating for individuals who might otherwise go unheard.</p>
                 <a data-modal-target="modal4">Read</a>                
@@ -155,12 +154,12 @@
     <div id="bottom1">
         <div class="wrapper">
             <div class="btm1_main">
-                <div class="btm1_info">
+                <div class="btm1_info animated fadeInLeft slow">
                     <h1>Virtual <span>Legal Services</span></h1>
                     <p>I provide quality, fast-paced legal services exclusively through secure remote access. Whether you need legal advice, document preparation, or ongoing representation, all services are delivered conveniently online—no in-person appointments.</p>
-                    <a href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/jlabuga2k16'});return false;">Book Now</a>
+                    <a href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/powersesquire'});return false;">Book Now</a>
                 </div>
-                <figure>
+                <figure class="animated zoomIn slow">
                     <img src="images/attrney-img.png" alt="Female Attorney Smiling" class="btm1_img">
                 </figure>
             </div>
@@ -172,7 +171,7 @@
             <div class="btm2_main">
                 <ul class="btm2_btns">
                     <li>
-                        <a>Family</a>
+                        <a class="animated fadeInLeft slow">Family</a>
                         <ul class="dropdown">
                             <li><a>Termination of Parental Rights</a></li>
                             <li><a>Dependency</a></li>
@@ -183,7 +182,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a>Immigration</a>
+                        <a class="animated fadeInUp slow">Immigration</a>
                         <ul class="dropdown">
                             <li><a>Immigrant Visa Processing</a></li>
                             <li><a>Deportation / Removal</a></li>
@@ -195,7 +194,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a>Criminal Law</a>
+                        <a class="animated fadeInRight slow">Criminal Law</a>
                         <ul class="dropdown">
                             <li><a>PCRA</a></li>
                             <li><a>Expunctions</a></li>
@@ -441,7 +440,9 @@
         </div>
     </footer>
 
-    <!-- Modal 1 -->
+    <div id="modal-container"></div>
+
+    <!-- Privacy Modal -->
     <div id="modal1" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -454,7 +455,7 @@
         </div>
     </div>
 
-    <!-- Modal 2 -->
+    <!-- Jurisdiction Modal -->
     <div id="modal2" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -467,7 +468,7 @@
         </div>
     </div>
 
-    <!-- Modal 3 -->
+    <!-- Disclaimer Modal -->
     <div id="modal3" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -480,6 +481,7 @@
         </div>
     </div>
 
+    <!-- Main Area Read Button Modal -->
     <div id="modal4" class="modal modal_main_area">
         <div class="modal-content">
             <div class="modal-header">
