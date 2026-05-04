@@ -1,45 +1,19 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
 
   /* =========================
-     MODALS
+     LOAD MODALS (FIRST)
   ========================== */
-  function openModal(modal) {
-    modal.classList.add('active');
+  const container = document.getElementById("modal-container");
 
-    modal.querySelectorAll('.swiper, .carousel').forEach(carousel => {
-      if (carousel.swiper) {
-        carousel.swiper.update();
-      }
-    });
+  if (container) {
+    try {
+      const res = await fetch("modals.html");
+      const html = await res.text();
+      container.innerHTML = html;
+    } catch (err) {
+      console.error("Failed to load modals:", err);
+    }
   }
-
-  function closeModal(modal) {
-    modal.classList.remove('active');
-  }
-
-  // Event delegation (more reliable)
-  document.addEventListener('click', (e) => {
-
-    // OPEN MODAL
-    const openBtn = e.target.closest('[data-modal-target]');
-    if (openBtn) {
-      const modalId = openBtn.getAttribute('data-modal-target');
-      const modal = document.getElementById(modalId);
-      if (modal) openModal(modal);
-    }
-
-    // CLOSE MODAL (button)
-    if (e.target.closest('[data-modal-close]')) {
-      const modal = e.target.closest('.modal');
-      if (modal) closeModal(modal);
-    }
-
-    // CLOSE MODAL (outside click)
-    if (e.target.classList.contains('modal')) {
-      closeModal(e.target);
-    }
-  });
-
 
   /* =========================
      SWIPER CAROUSEL
@@ -71,14 +45,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    function updateAutoHeight() {
+    window.addEventListener("resize", () => {
       swiper.params.autoHeight = window.innerWidth < 768;
       swiper.updateAutoHeight();
-    }
-
-    window.addEventListener("resize", updateAutoHeight);
+    });
   }
-
 
   /* =========================
      FORM + EMAILJS
@@ -128,45 +99,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (!valid) return;
 
-      // UX improvement
       submitBtn.disabled = true;
       submitBtn.innerText = "Sending...";
 
-      const templateParams = {
+      emailjs.send("service_vfukudp", "template_c58ztbn", {
         name,
         email,
         phone,
         message: comment
-      };
+      })
+      .then(() => {
+        const successMessage = document.getElementById('successMessage');
 
-      emailjs.send("service_vfukudp", "template_c58ztbn", templateParams)
-        .then(() => {
-          const successMessage = document.getElementById('successMessage');
+        if (successMessage) {
+          successMessage.style.display = 'block';
+        }
 
+        form.reset();
+
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
           if (successMessage) {
-            successMessage.style.display = 'block';
+            successMessage.style.display = 'none';
           }
-
-          form.reset();
-
-          clearTimeout(timeoutId);
-          timeoutId = setTimeout(() => {
-            if (successMessage) {
-              successMessage.style.display = 'none';
-            }
-          }, 5000);
-        })
-        .catch(err => {
-          console.error(err);
-          alert("Failed to send message. Please try again.");
-        })
-        .finally(() => {
-          submitBtn.disabled = false;
-          submitBtn.innerText = "Submit";
-        });
+        }, 5000);
+      })
+      .catch(err => {
+        console.error(err);
+        alert("Failed to send message.");
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Submit";
+      });
     });
   }
-
 
   /* =========================
      SCROLL ANIMATION
@@ -185,27 +152,59 @@ document.addEventListener('DOMContentLoaded', () => {
   ).forEach(el => observer.observe(el));
 
   /* =========================
-    DROPDOWN TOGGLE (CLICK)
+     GLOBAL CLICK HANDLER
   ========================== */
-  document.querySelectorAll('.bnr_btns > li, .btm2_btns > li').forEach(li => {
-    li.addEventListener('click', (e) => {
+  document.addEventListener("click", (e) => {
+
+    /* ===== OPEN MODAL ===== */
+    const modalTrigger = e.target.closest("[data-modal]");
+    if (modalTrigger) {
+      e.preventDefault();
+
+      const modal = document.getElementById(modalTrigger.dataset.modal);
+      if (modal) modal.classList.add("active");
+
+      // close dropdowns
+      document.querySelectorAll(".bnr_btns > li, .btm2_btns > li")
+        .forEach(i => i.classList.remove("active"));
+
+      return;
+    }
+
+    /* ===== CLOSE MODAL (X) ===== */
+    const closeBtn = e.target.closest(".modal .close");
+    if (closeBtn) {
+      closeBtn.closest(".modal").classList.remove("active");
+      return;
+    }
+
+    /* ===== CLOSE MODAL OUTSIDE ===== */
+    if (e.target.classList.contains("modal")) {
+      e.target.classList.remove("active");
+      return;
+    }
+
+    /* ===== DROPDOWN TOGGLE ===== */
+    const trigger = e.target.closest(".bnr_btns > li > a, .btm2_btns > li > a");
+    if (trigger && !trigger.hasAttribute("data-modal")) {
+      e.preventDefault();
       e.stopPropagation();
 
-      // close other open dropdowns
-      document.querySelectorAll('.bnr_btns > li.active, .btm2_btns > li.active')
-        .forEach(item => {
-          if (item !== li) item.classList.remove('active');
+      const li = trigger.parentElement;
+
+      document.querySelectorAll(".bnr_btns > li, .btm2_btns > li")
+        .forEach(i => {
+          if (i !== li) i.classList.remove("active");
         });
 
-      // toggle current
-      li.classList.toggle('active');
-    });
-  });
+      li.classList.toggle("active");
+      return;
+    }
 
-  // close dropdown when clicking outside
-  document.addEventListener('click', () => {
-    document.querySelectorAll('.bnr_btns > li.active, .btm2_btns > li.active')
-      .forEach(item => item.classList.remove('active'));
+    /* ===== CLOSE DROPDOWNS ===== */
+    document.querySelectorAll(".bnr_btns > li, .btm2_btns > li")
+      .forEach(i => i.classList.remove("active"));
+
   });
 
 });
