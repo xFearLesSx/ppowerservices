@@ -104,7 +104,7 @@ body {margin: 0 auto;min-height: 100vh;background: #f3f3f3;color: var(--blue);fo
 #footer_area .ftr_links {display: flex;width: 75%;justify-content: space-between;}
 #footer_area .ftr_links li {list-style: none;width: 24%;}
 #footer_area .ftr_links li a {text-decoration: none;text-transform: uppercase;font-weight: 500;font-size: 20px;line-height: 1;cursor: pointer;}
-#footer_area .ftr_links li a:hover {}
+#footer_area .ftr_links li a:hover {text-decoration: underline;text-underline-offset: 5px;}
 #footer_area .ftr_copyright {font-weight: 500;font-size: 20px;line-height: 1;}
 
 /* Toogle submenu */
@@ -118,7 +118,6 @@ body {margin: 0 auto;min-height: 100vh;background: #f3f3f3;color: var(--blue);fo
 .modal {display: none;position: fixed;inset: 0;background: rgba(0,0,0,0.6);justify-content: center;align-items: center;z-index: 9999999999;}
 .modal.active {display: flex;}
 .modal-content {background: white;padding: 40px;width: 480px;border-radius: 8px;position: relative;max-width: 95%;max-height: 90vh;display: flex;flex-direction: column;overflow: hidden;}
-.modal-content .modal-header {}
 .modal-content .close {cursor: pointer;font-size: 25px;text-align: right;position: absolute;right: 15px;top: 8px;}
 .modal-content h1 {text-transform: uppercase;line-height: 1;margin: 0px 0 20px;}
 .modal-content h1 span {display: block;}
