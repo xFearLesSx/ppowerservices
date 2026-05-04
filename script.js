@@ -1,26 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   /* =========================
-     LOAD MODALS VIA FETCH
-  ========================== */
-  const modalContainer = document.getElementById("modal-container");
-
-  const loadModal = (url) => {
-    return fetch(url)
-      .then(res => res.text())
-      .then(html => {
-        modalContainer.insertAdjacentHTML("beforeend", html);
-      });
-  };
-
-  const modalsLoaded = Promise.all([
-    loadModal("modals/privacy.html"),
-    loadModal("modals/jurisdiction.html"),
-    loadModal("modals/disclaimer.html"),
-    loadModal("modals/modal4.html")
-  ]);
-
-  /* =========================
      MODALS
   ========================== */
   function openModal(modal) {
@@ -37,70 +17,67 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.classList.remove('active');
   }
 
-  function bindModalEvents() {
-    const triggers = document.querySelectorAll('[data-modal-target]');
-    const closes = document.querySelectorAll('[data-modal-close]');
+  // Event delegation (more reliable)
+  document.addEventListener('click', (e) => {
 
-    triggers.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const modalId = btn.getAttribute('data-modal-target');
-        const modal = document.getElementById(modalId);
-        if (modal) openModal(modal);
-      });
-    });
+    // OPEN MODAL
+    const openBtn = e.target.closest('[data-modal-target]');
+    if (openBtn) {
+      const modalId = openBtn.getAttribute('data-modal-target');
+      const modal = document.getElementById(modalId);
+      if (modal) openModal(modal);
+    }
 
-    closes.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const modal = btn.closest('.modal');
-        if (modal) closeModal(modal);
-      });
-    });
+    // CLOSE MODAL (button)
+    if (e.target.closest('[data-modal-close]')) {
+      const modal = e.target.closest('.modal');
+      if (modal) closeModal(modal);
+    }
 
-    window.addEventListener('click', (e) => {
-      if (e.target.classList.contains('modal')) {
-        closeModal(e.target);
-      }
-    });
-  }
-
-  modalsLoaded.then(() => {
-    bindModalEvents();
+    // CLOSE MODAL (outside click)
+    if (e.target.classList.contains('modal')) {
+      closeModal(e.target);
+    }
   });
 
 
   /* =========================
      SWIPER CAROUSEL
   ========================== */
-  const swiper = new Swiper(".testimonial-swiper", {
-    loop: true,
-    centeredSlides: true,
-    slidesPerView: 3,
-    spaceBetween: 30,
-    autoHeight: window.innerWidth < 768,
+  let swiper;
 
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
+  if (typeof Swiper !== "undefined") {
+    swiper = new Swiper(".testimonial-swiper", {
+      loop: true,
+      centeredSlides: true,
+      slidesPerView: 3,
+      spaceBetween: 30,
+      autoHeight: window.innerWidth < 768,
 
-    autoplay: {
-      delay: 4000,
-      disableOnInteraction: false,
-    },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
 
-    breakpoints: {
-      0: { slidesPerView: 1 },
-      768: { slidesPerView: 2 },
-      1010: { slidesPerView: 3 }
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
+
+      breakpoints: {
+        0: { slidesPerView: 1 },
+        768: { slidesPerView: 2 },
+        1010: { slidesPerView: 3 }
+      }
+    });
+
+    function updateAutoHeight() {
+      swiper.params.autoHeight = window.innerWidth < 768;
+      swiper.updateAutoHeight();
     }
-  });
 
-  function updateAutoHeight() {
-    swiper.params.autoHeight = window.innerWidth < 768;
-    swiper.updateAutoHeight();
+    window.addEventListener("resize", updateAutoHeight);
   }
-
-  window.addEventListener("resize", updateAutoHeight);
 
 
   /* =========================
@@ -162,8 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
         message: comment
       };
 
-      // 1️⃣ Send to ADMIN
-      emailjs.send("service_vfukudp", "template_c58ztbn", templateParams)        
+      emailjs.send("service_vfukudp", "template_c58ztbn", templateParams)
         .then(() => {
           const successMessage = document.getElementById('successMessage');
 
@@ -188,7 +164,6 @@ document.addEventListener('DOMContentLoaded', () => {
           submitBtn.disabled = false;
           submitBtn.innerText = "Submit";
         });
-
     });
   }
 
