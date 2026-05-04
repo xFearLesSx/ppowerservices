@@ -31,7 +31,6 @@ body {margin: 0 auto;min-height: 100vh;background: #f3f3f3;color: var(--blue);fo
 #banner ul li a::after {content: '';position: absolute;display: block;z-index: 1;top: 50%;width: 30px;height: 30px;object-fit: contain;background-image: url(images/star-icon.png);background-size: contain;background-repeat: no-repeat;transform: translateY(-50%);right: 20px;}
 /* submenu */
 #banner ul.bnr_btns ul {display: none;position: absolute;z-index: 9;width: 100%;}
-#banner ul.bnr_btns li:hover ul {display: block;}
 #banner ul.bnr_btns ul li {width: 100%;}
 #banner ul.bnr_btns ul li a {background: none;color: var(--blue);background: var(--yellow);border-bottom: 1px solid;font-size: 18px;font-weight: 500;}
 #banner ul.bnr_btns ul li a::before, #banner ul.bnr_btns ul li a::after {display: none;}
@@ -93,7 +92,6 @@ body {margin: 0 auto;min-height: 100vh;background: #f3f3f3;color: var(--blue);fo
 #bottom2 .btm2_info .btm2_badge {width: 250px;}
 /* submenu */
 #bottom2 .btm2_btns ul {display: none;position: absolute;z-index: 9;width: 100%;}
-#bottom2 .btm2_btns li:hover ul {display: block;}
 #bottom2 .btm2_btns ul li {width: 100%;}
 #bottom2 .btm2_btns ul li a {background: none;color: var(--blue);background: var(--yellow);border-bottom: 1px solid;font-size: 16px;font-weight: 500;}
 /* end of submenu */
@@ -105,6 +103,13 @@ body {margin: 0 auto;min-height: 100vh;background: #f3f3f3;color: var(--blue);fo
 #footer_area .ftr_links li a {text-decoration: none;text-transform: uppercase;font-weight: 500;font-size: 20px;line-height: 1;cursor: pointer;}
 #footer_area .ftr_links li a:hover {}
 #footer_area .ftr_copyright {font-weight: 500;font-size: 20px;line-height: 1;}
+
+/* Toogle submenu */
+#banner .bnr_btns li ul,
+#bottom2 .btm2_btns li ul {display: none;}
+
+#banner .bnr_btns li.active > ul,
+#bottom2 .btm2_btns li.active > ul {display: block;}
 
 /* Modal */
 .modal {display: none;position: fixed;inset: 0;background: rgba(0,0,0,0.6);justify-content: center;align-items: center;z-index: 9999999999;}
