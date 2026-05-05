@@ -453,6 +453,12 @@
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script>
         emailjs.init("YfRWKoimClstJ4BVk");
+
+        if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+                document.title = "PHYLLIS POWERS, ESQ";
+            } else {
+                document.title = "PHYLLIS J. POWERS, ESQUIRE, LLC";
+        }
     </script>
 </body>
 </html>
