@@ -10,9 +10,10 @@
 }
 
 * {box-sizing: border-box;margin: 0;padding: 0;}
-body {margin: 0 auto;min-height: 100vh;background: #f3f3f3;color: var(--blue);font-family: Poppins, Arial, Helvetica, sans-serif;max-width: 1350px;}
-body .userway_buttons_wrapper {top: 13px !important; left: 13px !important; transform: none !important;}
-.wrapper {width: 1150px;margin: 0 auto;max-width: 100%;}
+body {margin: 0 auto;min-height: 100vh;background: #f3f3f3;color: var(--blue);font-family: Poppins, Arial, Helvetica, sans-serif;}
+/* body .userway_buttons_wrapper {top: 13px !important; left: 13px !important; transform: none !important;} */
+body:has(.calendly-overlay) .userway_buttons_wrapper {top: 13px !important; left: 13px !important; transform: none !important;}
+.wrapper {width: 1150px;margin: 0 auto;max-width: 100%;position: relative;}
 .fw-400 {font-weight: 400;}
 .fw-600 {font-weight: 600;}
 .fw-700 {font-weight: 700;}
@@ -25,8 +26,8 @@ body .userway_buttons_wrapper {top: 13px !important; left: 13px !important; tran
 #header .hdr_icons img {width: 50px;}
 #header .hdr_icons a:hover {transform: scale(1.2);transition: transform 0.5s ease;}
 
-#banner {background: url(images/bnr-bg.jpg) no-repeat center;background-size: 1350px;}
-#banner .wrapper {display: flex;align-items: center;min-height: 371px;width: 1200px;}
+#banner {background: url(images/bnr-bg.jpg) no-repeat center;background-size: 1920px;}
+#banner .wrapper {display: flex;align-items: center;min-height: 450px;width: 1200px;}
 #banner ul.bnr_btns {display: flex;flex-wrap: wrap;gap: 20px;}
 #banner ul.bnr_btns li {list-style: none;width: 830px;max-width: 100%;position: relative;}
 #banner ul.bnr_btns > li a {text-decoration: none;color: var(--yellow);background: var(--blue);text-align: center;width: 100%;display: block;font-size: 25px;text-transform: uppercase;font-weight: 700;border-radius: 40px;padding: 10px 0;position: relative;cursor: pointer;}
@@ -60,7 +61,7 @@ body .userway_buttons_wrapper {top: 13px !important; left: 13px !important; tran
 #middle1 .consultation_form form .email, 
 #middle1 .consultation_form form .phone {width: calc(50% - 8px);}
 #middle1 .consultation_form form .error {color: red;font-size: 12px;line-height: 1;margin: 5px 0;}
-#middle1 .consultation_form form .success-message {color: var(--yellow); display: none;}
+#middle1 .consultation_form form .success-message {color: var(--yellow);/* display: none; */}
 #middle1 .consultation_form form .success-message  .checkmark {width: 18px;height: 18px;background-color: #fff201; /* yellow background */position: relative;display: inline-block;top: 4px;}
 #middle1 .consultation_form form .success-message  .checkmark::after {content: '';position: absolute;left: 7px;top: 2px;width: 2px;height: 9px;border: solid #00f3e8;border-width: 0 2px 2px 0;transform: rotate(45deg);}
 #middle1 .consultation_form form input:-webkit-autofill,
