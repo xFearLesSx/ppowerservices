@@ -76,6 +76,9 @@
     #banner ul li a {font-size: 25px;}
     #banner ul li a::before,
     #banner ul li a::after {display: none;}
+
+    #middle1 .consultation_form form input,
+    #middle1 .consultation_form form textarea {font-weight: 700;text-align: right;}
     
     #middle1 .consultation_form input[id="email"], 
     #middle1 .consultation_form input[id="phone"],
