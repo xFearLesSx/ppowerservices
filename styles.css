@@ -61,7 +61,7 @@ body:has(.calendly-overlay) .userway_buttons_wrapper {top: 13px !important; left
 #middle1 .consultation_form form .email, 
 #middle1 .consultation_form form .phone {width: calc(50% - 8px);}
 #middle1 .consultation_form form .error {color: red;font-size: 12px;line-height: 1;margin: 5px 0;}
-#middle1 .consultation_form form .success-message {color: var(--yellow);/* display: none; */}
+#middle1 .consultation_form form .success-message {color: var(--yellow); display: none;}
 #middle1 .consultation_form form .success-message  .checkmark {width: 18px;height: 18px;background-color: #fff201; /* yellow background */position: relative;display: inline-block;top: 4px;}
 #middle1 .consultation_form form .success-message  .checkmark::after {content: '';position: absolute;left: 7px;top: 2px;width: 2px;height: 9px;border: solid #00f3e8;border-width: 0 2px 2px 0;transform: rotate(45deg);}
 #middle1 .consultation_form form input:-webkit-autofill,
