@@ -1,6 +1,6 @@
 @media only screen and (max-width: 1350px) {
     #header .logo {justify-content: space-between;}
-    #header .hdr_main {padding: 0 40px;}
+    #header .hdr_main {padding: 20px 40px;}
     #header .hdr_icons {width: auto;}
     
     #banner {padding:  0 40px;}
