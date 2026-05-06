@@ -89,6 +89,7 @@
     #bottom2 .btm2_btns li {width: 100%;}
     #bottom2 .btm2_info section {width: 100%;}
     #bottom2 .btm2_info section h1 {margin: 0 0 12px;}
+    #bottom2 .btm2_btns {flex-direction: column-reverse;}
     
     #footer_area .ftr_links li {width: 100%;}
     #footer_area .ftr_links {flex-wrap: wrap;gap: 15px;}
